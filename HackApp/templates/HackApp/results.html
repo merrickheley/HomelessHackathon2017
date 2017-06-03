@@ -2,6 +2,14 @@
 {% load staticfiles %}
 
 {% block head %}
+    <script>
+        // this will run after the map is loaded, see site.js
+        postInitMap = function() {
+
+            console.log('got map');
+
+        };
+    </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-CI0xR7pu20lYiwVzu5D3A3FxTrp7gKg&callback=initMap" async defer></script>
 {% endblock %}
 
@@ -10,7 +18,9 @@
         <h1>Search Results</h1>
         <div class="row">
             <div class="col-lg-7">
-                <table class="table">
+                <!-- http://getbootstrap.com/css/#tables -->
+                <table class="table table-striped table-hover">
+                    <tbody>
                     {% for house in houses %}
                         <tr>
                             <td>{{ house.address }}</td>
@@ -21,6 +31,7 @@
                             {% endfor %}
                         </tr>
                     {% endfor %}
+                    </tbody>
                 </table>
             </div>
             <div class="col-lg-5">
