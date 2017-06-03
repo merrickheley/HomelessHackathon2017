@@ -30,8 +30,11 @@ def MatchHouses(lat, lon, accommodation_length=SHORTTERM, tenant_type=HOMELESS):
     # Sort based on location
     houses = list(houses)
     houses.sort(key=lambda house: house.score)
-    return house
+    return houses
 
 # Create your views here.
 def basic(request):
     return render(request, "HackApp/index.html")
+
+def results(request):
+    return render(request, "HackApp/result.html", {'houses': MatchHouses(153.0, -27.0, SHORTTERM, HOMELESS)})

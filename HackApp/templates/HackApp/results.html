@@ -1,0 +1,11 @@
+{% load staticfiles %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home.ly</title>
+</head>
+<body>
+    {% for house in houses %}
+        {{ house.address }} {{ house.postcode }} {{ house.score }}
+    {% endfor %}
+</body>
+</html>
