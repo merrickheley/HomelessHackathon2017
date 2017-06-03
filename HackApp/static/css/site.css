@@ -9,7 +9,7 @@ body {
 
 .body-container {
     padding: 0 25px 50px 25px;
-    min-height: calc(100% - 50px);
+    min-height: calc(100% - 55px);
     background-color: #ffffff;
 }
 
@@ -48,6 +48,11 @@ footer > .container > * {
 }
 
 /*-----------*/
+
+#map {
+    height: 100%;
+    min-height: 420px;
+}
 
 .vdivider:after {
     background: #e0e0e0;

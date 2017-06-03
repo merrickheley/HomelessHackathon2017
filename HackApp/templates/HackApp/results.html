@@ -1,8 +1,28 @@
 {% extends "HackApp/base.html" %}
 {% load staticfiles %}
 
+{% block head %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-CI0xR7pu20lYiwVzu5D3A3FxTrp7gKg&callback=initMap" async defer></script>
+{% endblock %}
+
 {% block content %}
-    {% for house in houses %}
-        {{ house.address }} {{ house.postcode }} {{ house.score }}
-    {% endfor %}
+    <div class="body-content">
+        <h1>Search Results</h1>
+        <div class="row">
+            <div class="col-lg-7">
+                <table class="table">
+                    {% for house in houses %}
+                        <tr>
+                            <td>{{ house.address }}</td>
+                            <td>{{ house.postcode }}</td>
+                            <td>{{ house.score }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="col-lg-5">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

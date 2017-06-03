@@ -1,6 +1,18 @@
 {% extends "HackApp/base.html" %}
 {% load staticfiles %}
 
+{%  block navbar %}
+    <form class="navbar-form navbar-right hidden-sm visible-lg">
+        <div class="form-group">
+            <input type="text" placeholder="Email" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="Password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Sign in</button>
+    </form>
+{%  endblock %}
+
 {% block content %}
     <div class="body-content">
         <div class="jumbotron">
