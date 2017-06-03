@@ -52,7 +52,7 @@ class ServiceProvider(models.Model):
     post_code = models.CharField(max_length=6)
     lat = models.DecimalField(max_digits=9, decimal_places=6)
     lon = models.DecimalField(max_digits=9, decimal_places=6)
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50)
     website = models.CharField(max_length=200, default="", blank=True, null=True)
 
 class Service(models.Model):
