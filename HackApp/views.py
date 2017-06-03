@@ -37,4 +37,10 @@ def basic(request):
     return render(request, "HackApp/index.html")
 
 def results(request):
-    return render(request, "HackApp/result.html", {'houses': MatchHouses(153.0, -27.0, SHORTTERM, HOMELESS)})
+
+    return render(request, "HackApp/results.html", {
+        'houses': MatchHouses(request.GET['lat'],
+                              request.GET['lon'],
+                              request.GET['accom'],
+                              request.GET['tenant'])
+    })
