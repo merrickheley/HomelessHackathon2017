@@ -5,7 +5,7 @@ from HackApp.models import *
 
 def MatchHouses(lat, lon, accommodation_length=SHORTTERM, tenant_type=HOMELESS):
     # Filter based on essential criteria
-    houses = House.objects.filter(accommodation_length=accommodation_length, tenant_type=tenant_type)
+    # houses = House.objects.filter(accommodation_length=accommodation_length, tenant_type=tenant_type)
 
     # No houses, no score sort
     if len(houses) == 0:
