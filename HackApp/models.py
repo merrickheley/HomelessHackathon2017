@@ -53,6 +53,7 @@ class Service(models.Model):
     lon = models.DecimalField(max_digits=9, decimal_places=6)
     name = models.CharField(max_length=50, unique=True)
     category = models.ForeignKey('ServiceCategory')
+    website = models.Charfield(max_length=200, default="", blank=True, null=True)
 
 
 class AvailableService(models.Model):
