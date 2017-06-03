@@ -36,16 +36,25 @@ class House(models.Model):
         default=HOMELESS,
     )
 
-class ServiceProvider(models.Model):
-    name = models.CharField(max_length=50)
+class ServiceCategory(models.Model):
+    category = models.CharField(max_length=50)
+    serv_type = models.CharField(max_length=50)
+
+    def __str__(self):
+        return " - ".join([self.category,self.serv_type])
+
+    class Meta:
+        unique_together=("category", "serv_type")
 
 class Service(models.Model):
-    address = models.CharField(max_length=200)
+    suburb = models.CharField(max_length=200)
     post_code = models.CharField(max_length=6)
     lat = models.DecimalField(max_digits=9, decimal_places=6)
     lon = models.DecimalField(max_digits=9, decimal_places=6)
-    provider = models.ForeignKey('ServiceProvider')
-    weight = models.DecimalField(max_digits=9, decimal_places=6)
+    name = models.CharField(max_length=50, unique=True)
+    category = models.ForeignKey('ServiceCategory')
+    website = models.Charfield(max_length=200, default="", blank=True, null=True)
+
 
 class AvailableService(models.Model):
     house = models.ForeignKey('House')
