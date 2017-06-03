@@ -1,21 +1,22 @@
 from django.db import models
 
-class House(models.Model):
-    SHORTTERM = "ST"
-    LONGTERM = "LT"
-    ACCOMM_CHOICES = (
-        (SHORTTERM, 'Short Term'),
-        (LONGTERM, 'Long Term'),
-    )
+SHORTTERM = "ST"
+LONGTERM = "LT"
+ACCOMM_CHOICES = (
+    (SHORTTERM, 'Short Term'),
+    (LONGTERM, 'Long Term'),
+)
 
-    HOMELESS = "HL"
-    ATRISK = "AR"
-    YOUTH = "YT"
-    TENANT_CHOICES = (
-        (HOMELESS, 'Homeless'),
-        (ATRISK, 'At Risk'),
-        (YOUTH, 'Youth'),
-    )
+HOMELESS = "HL"
+ATRISK = "AR"
+YOUTH = "YT"
+TENANT_CHOICES = (
+    (HOMELESS, 'Homeless'),
+    (ATRISK, 'At Risk'),
+    (YOUTH, 'Youth'),
+)
+
+class House(models.Model):
 
     address = models.CharField(max_length=200)
     post_code = models.CharField(max_length=6)
@@ -44,6 +45,7 @@ class Service(models.Model):
     lat = models.DecimalField(max_digits=9, decimal_places=6)
     lon = models.DecimalField(max_digits=9, decimal_places=6)
     provider = models.ForeignKey('ServiceProvider')
+    weight = models.DecimalField(max_digits=9, decimal_places=6)
 
 class AvailableService(models.Model):
     house = models.ForeignKey('House')
