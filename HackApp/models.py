@@ -59,7 +59,7 @@ class ServiceProvider(models.Model):
     website = models.CharField(max_length=200, default="", blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return str(self.id) + ". " + self.name
 
 class Service(models.Model):
     category = models.ForeignKey('ServiceCategory')

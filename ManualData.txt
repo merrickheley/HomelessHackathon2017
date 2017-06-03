@@ -1,0 +1,61 @@
+93, 850, 761, 450, 383
+
+House 1
+ 
+    3 Mollison Street
+    4101
+    image1.jpg
+    153.009532
+    -27.476223
+    Short Term
+    At Risk
+
+	93, 850, 761, 450, 383
+   
+House 2
+ 
+    7 Ambleside St
+    4101
+    image2.jpg
+    153.009980
+    -27.479355
+    Short Term
+    At Risk
+	
+	93, 850, 761
+   
+House 3
+ 
+    40 Cambridge St
+    4101
+    image3.jpg
+    153.009846
+    -27.482510
+    Long Term
+    Youth
+	
+	450, 383
+   
+House 4
+ 
+    25 Dauphin Terrace
+    4101
+    image4.jpg
+    153.014838
+    -27.488896
+    Long Term
+    Homeless
+	
+	93,
+   
+Home 5
+ 
+    26 Drury St
+    4101
+    image5.jpg
+    152.998511
+    -27.488337
+    Short Term
+	
+	850, 761,
+	
