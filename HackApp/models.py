@@ -55,15 +55,22 @@ class ServiceProvider(models.Model):
     name = models.CharField(max_length=50)
     website = models.CharField(max_length=200, default="", blank=True, null=True)
 
+    def __str__(self):
+        return self.name
+
 class Service(models.Model):
     category = models.ForeignKey('ServiceCategory')
     provider = models.ForeignKey('ServiceProvider')
 
     class Meta:
         unique_together=("category", "provider")
+    def __str__(self):
+        return " - ".join([str(self.category), str(self.provider)])
 
 
 class AvailableService(models.Model):
     house = models.ForeignKey('House')
     service = models.ForeignKey('Service')
+
+
 
