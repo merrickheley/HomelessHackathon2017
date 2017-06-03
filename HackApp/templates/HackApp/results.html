@@ -14,8 +14,11 @@
                     {% for house in houses %}
                         <tr>
                             <td>{{ house.address }}</td>
-                            <td>{{ house.postcode }}</td>
+                            <td>{{ house.post_code }}</td>
                             <td>{{ house.score }}</td>
+                            {% for provider in house.providers %}
+                                <td><span class="badge"><span class="lnr {{ provider.icon }}"></span> {{ provider.name }}</span></td>
+                            {% endfor %}
                         </tr>
                     {% endfor %}
                 </table>
