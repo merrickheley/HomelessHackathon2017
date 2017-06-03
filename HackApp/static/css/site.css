@@ -33,7 +33,7 @@ select.deselected option {
     color: black;
 }
 
-option:disabled {
+select.deselected option:disabled, option:disabled {
     color: gray;
 }
 

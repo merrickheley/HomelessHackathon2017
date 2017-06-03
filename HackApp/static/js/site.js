@@ -23,6 +23,15 @@ $(document).ready(function(){
         $(ev.target).removeClass('deselected');
     });
 
+    $('#home-form-submit').click(function(ev){
+        ev.preventDefault();
+        var geoSuccess = function(position) {
+            $('#lat').val(position.coords.latitude);
+            $('#lon').val(position.coords.longitude);
+            $('#home-search-form').submit();
+        };
+        navigator.geolocation.getCurrentPosition(geoSuccess);
+    });
     /*
     $('#home-search input').on('input', function(ev){
         $(ev.target).closest('.form-group').parent().find('.form-group').addClass('hidden');
@@ -31,7 +40,7 @@ $(document).ready(function(){
     });
     */
     //$(this).closest('.form-group').next('.form-group').removeClass('invisible');
-})
+});
 
 //$("a[href='#bottom']").click(function() {
 //  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
