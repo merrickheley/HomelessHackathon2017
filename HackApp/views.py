@@ -20,6 +20,8 @@ def MatchHouses(lat, lon, accommodation_length=SHORTTERM, tenant_type=HOMELESS):
     if len(houses) == 0:
         return []
 
+    allproviders = {}
+
     for house in houses:
         # Initial score is based on absolute distance
         house.score = decimal.Decimal(math.sqrt((house.lat - decimal.Decimal(lat))**2 + (house.lon - decimal.Decimal(lon))**2))
@@ -31,9 +33,12 @@ def MatchHouses(lat, lon, accommodation_length=SHORTTERM, tenant_type=HOMELESS):
         availableproviders = AvailableProvider.objects.filter(house=house)
         for availableprovider in availableproviders:
 
+            if allproviders.get(availableprovider.provider) == None:
+                allproviders[availableprovider.provider] = True
+                print(availableprovider.provider, 'added')
+
             availableprovider.provider.icon = icons.get(availableprovider.provider.id, 'lnr-heart')
             house.providers.append(availableprovider.provider)
-            print(availableprovider.provider.name)
 
             services = Service.objects.filter(provider=availableprovider.provider)
             for service in services:
@@ -44,7 +49,7 @@ def MatchHouses(lat, lon, accommodation_length=SHORTTERM, tenant_type=HOMELESS):
     # Sort based on location
     houses = list(houses)
     houses.sort(key=lambda house: house.score)
-    return houses
+    return houses, allproviders
 
 # Create your views here.
 def basic(request):
@@ -54,10 +59,15 @@ def basic(request):
 
 def results(request):
 
+    houses, providers = MatchHouses(
+        request.GET['lat'],
+        request.GET['lon'],
+        request.GET['accom'],
+        request.GET['tenant']
+    )
+
     return render(request, "HackApp/results.html", {
         'numHouses': len(House.objects.all()),
-        'houses': MatchHouses(request.GET['lat'],
-                              request.GET['lon'],
-                              request.GET['accom'],
-                              request.GET['tenant']),
+        'houses': houses,
+        'providers': providers.keys(),
     })
