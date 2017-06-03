@@ -24,7 +24,7 @@ class House(models.Model):
     contact_phone = models.CharField(max_length=15)
     lat = models.DecimalField(max_digits=9, decimal_places=6)
     lon = models.DecimalField(max_digits=9, decimal_places=6)
-    accomodation_length = models.CharField(
+    accommodation_length = models.CharField(
         max_length=2,
         choices=ACCOMM_CHOICES,
         default=SHORTTERM,
@@ -45,7 +45,7 @@ class Service(models.Model):
     lon = models.DecimalField(max_digits=9, decimal_places=6)
     provider = models.ForeignKey('ServiceProvider')
 
-class AvailableServices(models.Model):
+class AvailableService(models.Model):
     house = models.ForeignKey('House')
     service = models.ForeignKey('Service')
 
