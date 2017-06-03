@@ -6,6 +6,7 @@ from HackApp.models import *
 def MatchHouses(lat, lon, accommodation_length=SHORTTERM, tenant_type=HOMELESS):
     # Filter based on essential criteria
     # houses = House.objects.filter(accommodation_length=accommodation_length, tenant_type=tenant_type)
+    houses = House.objects.all()
 
     # No houses, no score sort
     if len(houses) == 0:
@@ -34,11 +35,14 @@ def MatchHouses(lat, lon, accommodation_length=SHORTTERM, tenant_type=HOMELESS):
 
 # Create your views here.
 def basic(request):
-    return render(request, "HackApp/index.html")
+    return render(request, "HackApp/index.html", {
+        'numHouses': len(House.objects.all()),
+    })
 
 def results(request):
 
     return render(request, "HackApp/results.html", {
+        'numHouses': len(House.objects.all()),
         'houses': MatchHouses(request.GET['lat'],
                               request.GET['lon'],
                               request.GET['accom'],
