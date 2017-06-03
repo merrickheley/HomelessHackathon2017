@@ -42,7 +42,7 @@ class ServiceCategory(models.Model):
     weight = models.DecimalField(max_digits=9, decimal_places=6)
 
     def __str__(self):
-        return " - ".join([self.category,self.serv_type, self.weight])
+        return " - ".join([self.category,self.serv_type, str(self.weight)])
 
     class Meta:
         unique_together=("category", "serv_type")
