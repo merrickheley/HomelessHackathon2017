@@ -39,21 +39,28 @@ class House(models.Model):
 class ServiceCategory(models.Model):
     category = models.CharField(max_length=50)
     serv_type = models.CharField(max_length=50)
+    weight = models.DecimalField(max_digits=9, decimal_places=6)
 
     def __str__(self):
-        return " - ".join([self.category,self.serv_type])
+        return " - ".join([self.category,self.serv_type, self.weight])
 
     class Meta:
         unique_together=("category", "serv_type")
 
-class Service(models.Model):
+class ServiceProvider(models.Model):
     suburb = models.CharField(max_length=200)
     post_code = models.CharField(max_length=6)
     lat = models.DecimalField(max_digits=9, decimal_places=6)
     lon = models.DecimalField(max_digits=9, decimal_places=6)
     name = models.CharField(max_length=50, unique=True)
+    website = models.CharField(max_length=200, default="", blank=True, null=True)
+
+class Service(models.Model):
     category = models.ForeignKey('ServiceCategory')
-    website = models.Charfield(max_length=200, default="", blank=True, null=True)
+    provider = models.ForeignKey('ServiceProvider')
+
+    class Meta:
+        unique_together=("category", "provider")
 
 
 class AvailableService(models.Model):
