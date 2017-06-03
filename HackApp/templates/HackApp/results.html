@@ -3,12 +3,14 @@
 
 {% block head %}
     <script>
-        // this will run after the map is loaded, see site.js
-        postInitMap = function() {
+        var map;
 
-            console.log('got map');
-
-        };
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 8
+            });
+        }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-CI0xR7pu20lYiwVzu5D3A3FxTrp7gKg&callback=initMap" async defer></script>
 {% endblock %}
