@@ -36,6 +36,9 @@ class House(models.Model):
         default=HOMELESS,
     )
 
+    def __str__(self):
+        return self.address + " " + self.post_code
+
 class ServiceCategory(models.Model):
     category = models.CharField(max_length=50)
     serv_type = models.CharField(max_length=50)
@@ -68,9 +71,10 @@ class Service(models.Model):
         return " - ".join([str(self.category), str(self.provider)])
 
 
-class AvailableService(models.Model):
+class AvailableProvider(models.Model):
     house = models.ForeignKey('House')
-    service = models.ForeignKey('Service')
+    provider = models.ForeignKey('ServiceProvider')
 
-
+    def __str__(self):
+        return str(self.house) + "  -  " + str(self.provider)
 

@@ -13,12 +13,19 @@ def MatchHouses(lat, lon, accommodation_length=SHORTTERM, tenant_type=HOMELESS):
 
     for house in houses:
         # Initial score is based on absolute distance
-        house.score = math.sqrt((house.lat - decimal.Decimal(lat))**2 + (house.lon - decimal.Decimal(lon))**2)
+        house.score = decimal.Decimal(math.sqrt((house.lat - decimal.Decimal(lat))**2 + (house.lon - decimal.Decimal(lon))**2))
+
+        UsedCategories = {}
 
         # Modify score by services available
-        services = AvailableService.objects.filter(house=house)
-        for service in services:
-            house.score -= service.weight
+        availableproviders = AvailableProvider.objects.filter(house=house)
+        for availableprovider in availableproviders:
+
+            services = Service.objects.filter(provider=availableprovider.provider)
+            for service in services:
+                if (UsedCategories.get(service.category.category) == None):
+                    house.score -= service.category.weight
+                    UsedCategories[service.category.category] = True
 
     # Sort based on location
     houses = list(houses)
