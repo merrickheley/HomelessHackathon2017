@@ -5,18 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-theme.css' %}">
-    <script src="{% static 'js/jquery-3.2.1.js' %}" type="application/javascript"></script>
-    <script src="{% static 'js/bootstrap.js' %}" type="application/javascript"></script>
-    <title>Test page</title>
-    <style>
-        body {
-          padding-top: 50px;
-        }
-        .main-container {
-          padding: 40px 15px;
-          text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/site.css' %}">
+    <script type="application/javascript" src="{% static 'js/jquery-3.2.1.js' %}"></script>
+    <script type="application/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+    <script type="application/javascript" src="{% static 'js/site.js' %}"></script>
+    <title>Home.ly</title>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -28,26 +21,33 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Homeless Hackathon 2017</a>
+                <a class="navbar-brand" href="#">Home.ly</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li class="active"><a href="#">Homes</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#profile">My Profile</a></li>
+                    <li><a href="#about">About Home.ly</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <div class="header-rightbar">
+                    Login
+                </div>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
 
-    <div class="container">
-        <div class="main-container">
-            <h1>Hello World</h1>
+    <div class="container body-container">
+        <div class="body-content">
+            <h1>Home.ly</h1><h2>Housing First</h2>
             <hr/>
             <p class="lead">
+                <!--
                 <span>This is our starting page, powered by <a href="http://getbootstrap.com/getting-started/">Bootstrap</a> and <a href="http://jquery.com/download/">JQuery</a>.</span>
                 <br/>
                 <span>Lorem Ipsum...</span>
+                -->
             </p>
         </div>
     </div>
