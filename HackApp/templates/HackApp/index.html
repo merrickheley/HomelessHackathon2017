@@ -50,42 +50,93 @@
         <div class="jumbotron">
             <h1><span class="lnr lnr-home"></span> Home.ly</h1>
             <p class="lead">Housing First solutions!</p>
-            <p><a class="btn btn-lg btn-success smooth" href="#bottom" role="button">Get started today »</a></p>
+            <p><a class="btn btn-lg btn-success smooth" href="#home-search" role="button">Get started today »</a></p>
         </div>
     </div>
-    <div class="home-search-container row">
+    <div id="home-search" class="home-search-container row">
         <div class="col-lg-5 vdivider">
-            <form>
-                <div class="form-group row">
-                    <label for="housing-input" class="col-lg-10 col-form-label">
-                        What type of housing are you after?
-                    </label>
-                    <div class="col-lg-12">
-                        <input class="form-control" type="text" value="Long-term housing" id="housing-input">
-                    </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Find a Home</h3>
                 </div>
-                <div class="form-group row">
-                    <label for="situation-input" class="col-lg-10 col-form-label">
-                        Which best describes your current situation?
-                    </label>
-                    <div class="col-lg-12">
-                        <input class="form-control" type="search" value="I am currently homeless" id="situation-input">
-                    </div>
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group row p1">
+                            <label for="housing-option" class="col-lg-10 col-form-label">
+                                What type of housing are you after?
+                            </label>
+                            <div class="col-lg-12">
+                                <!--
+                                <input class="form-control" type="text" value="Long-term housing" id="housing-input">
+                                -->
+                                <select id="housing-option" name="housing-option" class="form-control deselected">
+                                    <option value="" selected disabled>(Accommodation Type)</option>
+                                    <option value="Short Term">Immediate Accommodation</option>
+                                    <option value="Long Term">Long-Term Housing</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row p1">
+                            <div class="col-lg-12">
+                                <button type="button" class="btn btn-md btn-default pull-right disabled">Next Question »</button>
+                            </div>
+                        </div>
+                        <div class="form-group row hidden p2">
+                            <label for="situation-option" class="col-lg-10 col-form-label">
+                                Which best describes your current situation?
+                            </label>
+                            <div class="col-lg-12">
+                                <!--
+                                <input class="form-control" type="search" value="I am currently homeless" id="situation-input">
+                                -->
+                                <select id="situation-option" name="situation-option" class="form-control deselected">
+                                    <option value="" selected disabled>(Tenant Situation)</option>
+                                    <option value="Homeless">Currently Homeless (Adult)</option>
+                                    <option value="Youth">Currently Homeless (Youth)</option>
+                                    <option value="At-Risk">At Risk of becoming Homeless</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row hidden p2">
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-md btn-primary pull-right disabled">Start Search</button>
+                            </div>
+                        </div>
+                        <!--
+                        <div class="form-group row hidden">
+                            <label for="situation-input" class="col-lg-10 col-form-label">
+                                Which best describes your current situation?
+                            </label>
+                            <div class="col-lg-12">
+                                <input class="form-control" type="search" value="I am currently homeless" id="situation-input">
+                            </div>
+                        </div>
+                        <div class="form-group row hidden">
+                            <label for="location-input" class="col-lg-10 col-form-label">
+                                Where would you like to search?
+                            </label>
+                            <div class="col-lg-12">
+                                <input class="form-control" type="search" value="Brisbane, QLD" id="location-input">
+                            </div>
+                        </div>
+                        <div class="form-group row hidden">
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-lg btn-primary pull-right">Search</button>
+                            </div>
+                        </div>
+                        -->
+                    </form>
                 </div>
-                <div class="form-group row">
-                    <label for="location-input" class="col-lg-10 col-form-label">
-                        Where would you like to search?
-                    </label>
-                    <div class="col-lg-12">
-                        <input class="form-control" type="search" value="Brisbane, QLD" id="location-input">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Search</button>
-            </form>
+            </div>
         </div>
         <div class="col-lg-7">
-            <div class="pull-right">
-                Right
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Emergency Services</h3>
+                </div>
+                <div class="panel-body">
+                    Panel content
+                </div>
             </div>
         </div>
     </div>
