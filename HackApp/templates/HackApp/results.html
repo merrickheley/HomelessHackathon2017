@@ -107,6 +107,15 @@
                 features[1].position
             );
         }
+
+        $(document).ready(function() {
+            $('.result-row').click(function (ev) {
+                var houseNum = parseInt($(ev.target).closest('tr').attr('data-id'));
+                console.log(houseNum);
+
+                //
+            });
+        });
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-CI0xR7pu20lYiwVzu5D3A3FxTrp7gKg&callback=initMap" async defer></script>
 {% endblock %}
@@ -141,7 +150,7 @@
                     </thead>
                     <tbody>
                     {% for house in houses %}
-                        <tr>
+                        <tr class="result-row" data-id="{{ house.num }}">
                             <td>{{ house.num }}</td>
                             <td>{{ house.address }}</td>
                             <td>{{ house.post_code }}</td>
