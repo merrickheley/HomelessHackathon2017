@@ -29,10 +29,10 @@
             <ul class="nav navbar-nav">
                 <a class="navbar-brand" href="/">Home.ly</a>
                 <li role="presentation" class="active"><a href="#"><span class="badge">{{ numHouses }}</span> Homes</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#profile">My Profile</a></li>
-                <li><a href="#about">About Home.ly</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="{% url 'services'  %}">Services</a></li>
+                <li><a href="{% url 'profile' %}">My Profile</a></li>
+                <li><a href="{% url 'about' %}">About Home.ly</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
             {% block navbar %}{% endblock %}
         </div><!--/.nav-collapse -->

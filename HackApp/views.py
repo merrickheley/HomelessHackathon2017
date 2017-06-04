@@ -76,3 +76,27 @@ def results(request):
         'houses': houses,
         'providers': providers.keys(),
     })
+
+
+def services(request):
+    av_prov=AvailableProvider.objects.all()
+    providers=[]
+    for i in av_prov:
+        providers.append(i.provider)
+    unique_prov=set(providers)
+    out=[]
+    for prov in unique_prov:
+        outd={}
+        outd['prov']=prov
+        outd['count']=AvailableProvider.objects.filter(provider=prov).count()
+        out.append(outd)
+    print(out)
+    return render(request, "HackApp/services.html",{
+        'prov_count':out,
+        })
+def profile(request):
+    return render(request, "HackApp/todo.html")
+def about(request):
+    return render(request, "HackApp/todo.html")
+def contact(request):
+    return render(request, "HackApp/todo.html")

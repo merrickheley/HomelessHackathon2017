@@ -1,0 +1,29 @@
+{% extends "HackApp/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+   
+{% endblock %}
+
+{% block content %}
+    <div class="body-content">
+        <table>
+        	<thead>
+        	<tr>
+        	<th>Service</th>
+        	<th>Homes Using</th>
+        	<th>Go To</th>
+        	</tr>
+        	</thead>
+        	<tbody>
+        		{% for prov in prov_count %}
+        			<tr>
+        				<td>{{ prov.prov.name }}</td>
+        				<td>{{ prov.count}}</td>
+        				<td><a href="{{prov.prov.website}}">Link</a></td>
+        			</tr>
+        		{% endfor %}
+        	</tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -18,7 +18,7 @@ $(document).ready(function(){
 
     });
 
-    $('#home-search button').click(function(ev) {
+    $('#home-form-next').click(function(ev) {
         if ($(ev.target).hasClass('disabled')) return;
 
         $(ev.target).closest('.form-group').parent().find('.form-group.p1').addClass('hidden');
