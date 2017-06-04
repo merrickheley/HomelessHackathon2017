@@ -62,6 +62,10 @@ footer > .container > * {
     font-size: 18px;
 }
 
+img.thumb {
+    max-width: 120px;
+}
+
 td {
     text-align: left;
 }
