@@ -18,12 +18,15 @@
         <div class="jumbotron">
             <h1><span class="lnr lnr-home"></span> Home.ly</h1>
             <p class="lead">Housing First solutions!</p>
-            <p><a class="btn btn-lg btn-success smooth" href="#home-search" role="button">Get started today »</a></p>
+        </div>
+        <div class="alert alert-info" role="alert">
+            <strong>Heads up!</strong> There are <span class="badge">{{ numHouses }}</span> housings available in your area.
+            <a class="btn btn-md btn-success smooth getting-started-btn" href="#home-search" role="button">Get started today »</a>
         </div>
     </div>
     <div id="home-search" class="home-search-container row">
         <div class="col-lg-5 vdivider">
-            <div class="panel panel-primary">
+            <div class="panel panel-primary panel-home-search invisible">
                 <div class="panel-heading">
                     <h3 class="panel-title">Find a Home</h3>
                 </div>
