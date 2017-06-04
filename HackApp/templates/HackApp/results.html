@@ -139,12 +139,17 @@
                     window.features[houseNum].position
                 );
 
+                //scroll to map
                 $('html, body').animate({
                     scrollTop: 0//$("#map").offset().top - 55
                 }, 500);
 
+                //select row
                 $('.table-results .result-row').removeClass('selected');
                 $(ev.target).closest('tr').addClass('selected');
+
+                //clone summary
+                $('.house-summary-container').html($(ev.target).closest('tr').find('.hidden-summary').html());
 
             });
 
@@ -277,6 +282,60 @@
                                         </a>
                                     </div>
                                 {% endfor %}
+                            </td>
+                            <td class="hidden-summary hidden">
+                                <div class="row house-summary-header">
+                                    <span>{{ house.address }}, West End QLD {{ house.post_code }}</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <span class="label label-primary stars gold-stars">
+                                            ★
+                                            {% if house.num < 5 %}
+                                                ★
+                                            {% endif %}
+                                            {% if house.num < 4 %}
+                                                ★
+                                            {% endif %}
+                                            {% if house.num < 3 %}
+                                                ★
+                                            {% endif %}
+                                            {% if house.num < 2 %}
+                                                ★
+                                            {% endif %}
+                                        </span>
+                                        <img class="thumb2" src="{% static 'pictures/' %}{{ house.photo }}" />
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <strong>Services: </strong>
+                                        <div>
+                                            {% for provider in house.providers %}
+                                                <div>
+                                                    <a href="{{ provider.website }}" target="_">
+                                                        <span class="badge"><span class="lnr {{ provider.icon }}"></span> {{ provider.name }}</span>
+                                                    </a>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <br/>
+                                        <strong>Features:</strong>
+                                        <div class="indent">
+                                            {% if house.pets %}
+                                                <div><span class="label-features lnr lnr-paw"></span> Pet Friendly</div>
+                                            {% endif %}
+                                            {% if house.accommodation_type == "H" %}
+                                                <div><span class="label-features lnr lnr-home"></span> Shared Living Space</div>
+                                            {% endif %}
+                                            {% if house.accommodation_type == "A" %}
+                                                <div><span class="label-features lnr lnr-apartment"></span> Private Apartment</div>
+                                            {% endif %}
+                                        </div>
+                                        <br/>
+                                        <strong>Contact: </strong> <span class="indent">{{ house.contact_name }}</span>
+                                        <br/>
+                                        <button type="button" class="btn btn-primary"><span class="lnr lnr-phone-handset"></span> Call {{ house.contact_phone }}</button>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     {% endfor %}
