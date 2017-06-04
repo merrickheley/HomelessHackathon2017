@@ -11,6 +11,10 @@ $(document).on('click', 'a.smooth', function(event){
 
 $(document).ready(function(){
 
+    $('.getting-started-btn').click(function(ev){
+        $('div.panel-home-search').removeClass('invisible');
+    });
+
     $('#home-search button').click(function(ev) {
         if ($(ev.target).hasClass('disabled')) return;
 

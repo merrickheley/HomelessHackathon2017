@@ -137,28 +137,70 @@
 
 {% block content %}
     <div class="body-content">
-        <h1>Search Results</h1>
         <div class="row">
-            <div class="col-lg-7">
+            <div class="col-lg-6">
+                <h2 style="text-align: left;">Search Results</h2>
+                <hr/>
+                <div class="house-summary-container">
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div id="map"></div>
+            </div>
+        </div>
+        <div class="row"><br/></div>
+        <div class="row">
+            <div class="col-lg-12">
                 <!-- http://getbootstrap.com/css/#tables -->
                 <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Address</th>
+                        <th>Post Code</th>
+                        <th>Relevance</th>
+                        <th>Available Services</th>
+                    </tr>
+                    </thead>
                     <tbody>
                     {% for house in houses %}
                         <tr>
+                            <td>{{ house.num }}</td>
                             <td>{{ house.address }}</td>
                             <td>{{ house.post_code }}</td>
-                            <td>{{ house.score }}</td>
-                            {% for provider in house.providers %}
-                                <td><span class="badge"><span class="lnr {{ provider.icon }}"></span> {{ provider.name }}</span></td>
-                            {% endfor %}
+                            <td>
+                                <span class="stars">
+                                    ★
+                                    {% if house.num < 5 %}
+                                        ★
+                                    {% endif %}
+                                    {% if house.num < 4 %}
+                                        ★
+                                    {% endif %}
+                                    {% if house.num < 3 %}
+                                        ★
+                                    {% endif %}
+                                    {% if house.num < 2 %}
+                                        ★
+                                    {% endif %}
+                                </span>
+                            </td>
+                            <td>
+                                {% for provider in house.providers %}
+                                    <div>
+                                        <span class="badge"><span class="lnr {{ provider.icon }}"></span> {{ provider.name }}</span>
+                                    </div>
+                                {% endfor %}
+                            </td>
+                        </tr>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-5">
-                <div id="map"></div>
-            </div>
+
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
     </div>
 {% endblock %}
