@@ -162,8 +162,31 @@
                 <h2 style="text-align: left;">Searching...</h2>
                 <p>We found <strong>5</strong> results in your area:</p>
                 <hr/>
-                <div class="house-summary-container">
-
+                <div class="container col-lg-12 vdivider">
+                    <div class="house-summary-container">
+                        {% for house in houses %}
+                            {% if house.num == 1 %}
+                                <div class="row house-summary-header">
+                                    <span>{{ house.address }}, {{ house.post_code }}</span>
+                                    <span class="label label-primary stars">
+                                        ★
+                                        {% if house.num < 5 %}
+                                            ★
+                                        {% endif %}
+                                        {% if house.num < 4 %}
+                                            ★
+                                        {% endif %}
+                                        {% if house.num < 3 %}
+                                            ★
+                                        {% endif %}
+                                        {% if house.num < 2 %}
+                                            ★
+                                        {% endif %}
+                                    </span>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6">

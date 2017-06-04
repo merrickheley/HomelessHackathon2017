@@ -24,6 +24,15 @@ body {
     min-height: 100%;
 }
 
+.house-summary-header .stars {
+    font-size: 24px;
+    color: gold;
+}
+
+.house-summary-header {
+    font-size: 24px;
+}
+
 h1 {
     font-size: 72px;
 }
@@ -96,7 +105,11 @@ td {
     min-height: 480px;
 }
 
-.vdivider:after {
+.house-summary-container {
+    padding-left: 10px;
+}
+
+.vdivider:before {
     background: #e0e0e0;
     width: 1px;
     content: "";
@@ -104,7 +117,7 @@ td {
     position: absolute;
     top:0;
     bottom: 0;
-    right: 0;
+    left: 0;
     min-height: 70px;
 }
 
