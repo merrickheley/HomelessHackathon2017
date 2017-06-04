@@ -16,12 +16,13 @@
 {% block content %}
     <div class="body-content">
         <div class="jumbotron">
-            <h1><span class="lnr lnr-home"></span> Home.ly</h1>
+            <h1><span class="lnr lnr-home icon-title"></span> Home.ly</h1>
             <p class="lead">Housing First solutions!</p>
         </div>
         <div class="alert alert-info" role="alert">
             <strong>Heads up!</strong> There are <span class="badge">{{ numHouses }}</span> housings available in your area.
-            <a class="btn btn-md btn-success smooth getting-started-btn" href="#home-search" role="button">Get started today »</a>
+            <a class="btn btn-md btn-success smooth getting-started-btn" href="#home-search" role="button">Get started online »</a>
+            <a class="btn btn-md btn-primary" href="tel:0712345678" role="button"><span class="lnr lnr-phone-handset"></span> Call Us: 07 1234 5678</a>
         </div>
     </div>
     <div id="home-search" class="home-search-container row">
