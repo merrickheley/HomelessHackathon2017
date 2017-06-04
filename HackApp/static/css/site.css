@@ -66,6 +66,10 @@ img.thumb {
     max-width: 120px;
 }
 
+.table-results .result-row.selected {
+    background-color: #d9edf7;
+}
+
 td {
     text-align: left;
 }
