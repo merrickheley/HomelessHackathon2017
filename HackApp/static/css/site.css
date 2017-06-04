@@ -24,13 +24,21 @@ body {
     min-height: 100%;
 }
 
-.house-summary-header .stars {
-    font-size: 24px;
+.stars.gold-stars {
     color: gold;
+}
+
+.indent {
+    padding-left: 10px;
+}
+
+.label-features {
+    font-size: 28px;
 }
 
 .house-summary-header {
     font-size: 24px;
+    margin-bottom: 15px;
 }
 
 h1 {
@@ -88,6 +96,10 @@ footer > .container > * {
 
 img.thumb {
     max-width: 120px;
+}
+
+img.thumb2 {
+    max-width: 100%;
 }
 
 .table-results .result-row.selected {

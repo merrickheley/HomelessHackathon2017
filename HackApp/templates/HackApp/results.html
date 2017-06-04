@@ -162,38 +162,75 @@
                 <h2 style="text-align: left;">Searching...</h2>
                 <p>We found <strong>5</strong> results in your area:</p>
                 <hr/>
-                <div class="container col-lg-12 vdivider">
+                <div class="col-lg-12"><!--vdivider-->
                     <div class="house-summary-container">
                         {% for house in houses %}
                             {% if house.num == 1 %}
                                 <div class="row house-summary-header">
-                                    <span>{{ house.address }}, {{ house.post_code }}</span>
-                                    <span class="label label-primary stars">
-                                        ★
-                                        {% if house.num < 5 %}
+                                    <span>{{ house.address }}, West End QLD {{ house.post_code }}</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <span class="label label-primary stars gold-stars">
                                             ★
-                                        {% endif %}
-                                        {% if house.num < 4 %}
-                                            ★
-                                        {% endif %}
-                                        {% if house.num < 3 %}
-                                            ★
-                                        {% endif %}
-                                        {% if house.num < 2 %}
-                                            ★
-                                        {% endif %}
-                                    </span>
+                                            {% if house.num < 5 %}
+                                                ★
+                                            {% endif %}
+                                            {% if house.num < 4 %}
+                                                ★
+                                            {% endif %}
+                                            {% if house.num < 3 %}
+                                                ★
+                                            {% endif %}
+                                            {% if house.num < 2 %}
+                                                ★
+                                            {% endif %}
+                                        </span>
+                                        <img class="thumb2" src="{% static 'pictures/' %}{{ house.photo }}" />
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <strong>Services: </strong>
+                                        <div>
+                                            {% for provider in house.providers %}
+                                                <div>
+                                                    <a href="{{ provider.website }}" target="_">
+                                                        <span class="badge"><span class="lnr {{ provider.icon }}"></span> {{ provider.name }}</span>
+                                                    </a>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <br/>
+                                        <strong>Features:</strong>
+                                        <div class="indent">
+                                            {% if house.pets %}
+                                                <div><span class="label-features lnr lnr-paw"></span> Pet Friendly</div>
+                                            {% endif %}
+                                            {% if house.accommodation_type == "H" %}
+                                                <div><span class="label-features lnr lnr-home"></span> Shared Living Space</div>
+                                            {% endif %}
+                                            {% if house.accommodation_type == "A" %}
+                                                <div><span class="label-features lnr lnr-apartment"></span> Private Apartment</div>
+                                            {% endif %}
+                                        </div>
+                                        <br/>
+                                        <strong>Contact: </strong> <span class="indent">{{ house.contact_name }}</span>
+                                        <br/>
+                                        <button type="button" class="btn btn-primary"><span class="lnr lnr-phone-handset"></span> Call {{ house.contact_phone }}</button>
+                                    </div>
                                 </div>
                             {% endif %}
                         {% endfor %}
                     </div>
                 </div>
+                <hr/>
             </div>
             <div class="col-lg-6">
                 <div id="map"></div>
             </div>
         </div>
-        <div class="row"><br/></div>
+        <div class="row">
+            <hr/>
+        </div>
         <div class="row">
             <div class="col-lg-12">
                 <!-- http://getbootstrap.com/css/#tables -->
@@ -246,8 +283,6 @@
                     </tbody>
                 </table>
             </div>
-
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
     </div>
 {% endblock %}
