@@ -81,9 +81,9 @@
             });
 
 
-            var userPos = new google.maps.LatLng(lat, lon);
+            window.userPos = new google.maps.LatLng(lat, lon);
 
-            var features = [
+            window.features = [
                     {
                         position: userPos,
                         type: 'location',
@@ -105,7 +105,7 @@
             ];
 
             // Create markers.
-            features.forEach(function(feature) {
+            window.features.forEach(function(feature) {
                 var marker = new Marker({
                     map: map,
                     position: feature.position,
@@ -124,19 +124,20 @@
                     });
                 }
             });
-
             calculateAndDisplayRoute(directionsService, directionsDisplay,
-                userPos,
-                features[1].position
+                window.userPos,
+                window.features[1].position
             );
         }
 
         $(document).ready(function() {
             $('.result-row').click(function (ev) {
                 var houseNum = parseInt($(ev.target).closest('tr').attr('data-id'));
-                console.log(houseNum);
 
-                //
+                calculateAndDisplayRoute(directionsService, directionsDisplay,
+                    window.userPos,
+                    window.features[houseNum].position
+                );
             });
         });
 
