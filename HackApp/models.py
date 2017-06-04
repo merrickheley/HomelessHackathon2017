@@ -16,6 +16,13 @@ TENANT_CHOICES = (
     (YOUTH, 'Youth'),
 )
 
+HOUSE = "H"
+APART = "A"
+ACCOMM_TYPE = (
+    (HOUSE, 'House'),
+    (APART, 'Apartment'),
+)
+
 class House(models.Model):
 
     address = models.CharField(max_length=200)
@@ -25,6 +32,7 @@ class House(models.Model):
     contact_phone = models.CharField(max_length=15)
     lat = models.DecimalField(max_digits=9, decimal_places=6)
     lon = models.DecimalField(max_digits=9, decimal_places=6)
+    pets = models.BooleanField(default=True)
     accommodation_length = models.CharField(
         max_length=2,
         choices=ACCOMM_CHOICES,
@@ -35,7 +43,11 @@ class House(models.Model):
         choices=TENANT_CHOICES,
         default=HOMELESS,
     )
-
+    accommodation_type = models.CharField(
+        max_length=2,
+        choices=ACCOMM_TYPE,
+        default=HOUSE,
+    )
     def __str__(self):
         return self.address + " " + self.post_code
 
