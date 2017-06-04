@@ -184,19 +184,6 @@
                                         {% endif %}
                                     </span>
                                 </div>
-                                {% for provider in house.providers %}
-                                    <div>
-                                        <a href="{{ provider.website }}" target="_">
-                                            <span class="badge"><span class="lnr {{ provider.icon }}"></span> {{ provider.name }}</span>
-                                        </a>
-                                    </div>
-                                {% endfor %}
-                                <div>
-                                    <p>{{house.contact_name}}</p>
-                                </div>
-                                <div>
-                                    <p>{{house.contact_phone}}</p>
-                                </div>
                             {% endif %}
                         {% endfor %}
                     </div>
