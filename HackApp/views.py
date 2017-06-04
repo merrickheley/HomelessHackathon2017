@@ -91,6 +91,8 @@ def services(request):
         outd['count']=AvailableProvider.objects.filter(provider=prov).count()
         out.append(outd)
     print(out)
+    for k,v in enumerate(out):
+        v['num'] = k+1
     return render(request, "HackApp/services.html",{
         'prov_count':out,
         })

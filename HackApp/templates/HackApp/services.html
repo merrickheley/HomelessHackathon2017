@@ -7,23 +7,32 @@
 
 {% block content %}
     <div class="body-content">
-        <table>
-        	<thead>
-        	<tr>
-        	<th>Service</th>
-        	<th>Homes Using</th>
-        	<th>Go To</th>
-        	</tr>
-        	</thead>
-        	<tbody>
-        		{% for prov in prov_count %}
-        			<tr>
-        				<td>{{ prov.prov.name }}</td>
-        				<td>{{ prov.count}}</td>
-        				<td><a href="{{prov.prov.website}}">Link</a></td>
-        			</tr>
-        		{% endfor %}
-        	</tbody>
+        <div class="jumbotron">
+            <h1><span class="lnr lnr-home icon-title"></span> Home.ly Services</h1>
+            <p class="lead">Service Provider Portal</p>
+        </div>
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Service</th>
+                <th>Homes Using Service</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for prov in prov_count %}
+                <tr>
+                    <td>{{ prov.num }}</td>
+                    <td>{{ prov.prov.name }}</td>
+                    <td><span class="">{{ prov.count}}</span></td>
+                    <td>
+                        <a class="btn btn-md btn-primary" href="{{ prov.prov.website }}"><span class="lnr lnr-earth"></span> Service Home</a>
+                        <a class="btn btn-md btn-success" href="#"><span class="lnr lnr-pencil"></span> Admin Tools</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
         </table>
     </div>
 {% endblock %}
