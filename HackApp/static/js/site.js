@@ -13,6 +13,9 @@ $(document).ready(function(){
 
     $('.getting-started-btn').click(function(ev){
         $('div.panel-home-search').removeClass('invisible');
+        $('div.panel-home-search').css('display','none');
+        $('div.panel-home-search').fadeIn();
+
     });
 
     $('#home-search button').click(function(ev) {
@@ -20,6 +23,8 @@ $(document).ready(function(){
 
         $(ev.target).closest('.form-group').parent().find('.form-group.p1').addClass('hidden');
         $(ev.target).closest('.form-group').parent().find('.form-group.p2').removeClass('hidden');
+        $(ev.target).closest('.form-group').parent().find('.form-group.p2').css('display','none');
+        $(ev.target).closest('.form-group').parent().find('.form-group.p2').fadeIn();
     });
 
     $('#home-search select').on('input', function(ev){
