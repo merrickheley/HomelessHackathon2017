@@ -88,3 +88,7 @@ td {
 .home-search-container {
     min-height: 100px;
 }
+
+.result-row {
+    cursor: pointer;
+}
