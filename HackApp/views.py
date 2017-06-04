@@ -6,7 +6,7 @@ from HackApp.models import *
 icons = {
     93: 'lnr-earth',  # Sisters Inside
     383: 'lnr-redo',  # Pathways Health and Research
-    450: 'lnr-start',  # Breast cancer
+    450: 'lnr-star',  # Breast cancer
     761: 'lnr-users',  # Community friends
     850: 'lnr-heart-pulse',  # Lifeline
 }
