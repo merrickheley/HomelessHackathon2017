@@ -10,7 +10,7 @@ Tech Stack: Python+Django, JS+Jquery, CSS+Bootstrap, HTML5
 
 Data Sources: Google Maps API, [Community Directory](http://communitydirectory.com.au)
 
-Result: $500 prize for the team
+Result: Equal second place and a $500 prize for the team
 
 ----
 
