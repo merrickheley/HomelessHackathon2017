@@ -14,7 +14,18 @@ Result: Equal second place and a $500 prize for the team
 
 ----
 
-Screenshots:
+## Run the Demo
+
+ - Install the latest version of [Python 3](https://www.python.org/downloads/)
+ - Install the latest version of the [Django web framework](https://docs.djangoproject.com/en/1.11/intro/install/)
+ - Checkout the source code
+ - Start the Django server: go to the root directory and run `python manage.py runserver`
+
+A demo database is included, with real support services from across Brisbane and 5 sample housings in West End.
+
+----
+
+## Screenshots
 
 ![Home Page](/screenshots/homely-1c.png?raw=true)
 
